@@ -85,6 +85,10 @@ questions = __webpack_require__(17);
 console.log('hello');
 console.log(questions);
 
+questions.fetch();
+
+console.log(questions);
+
 /***/ }),
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {

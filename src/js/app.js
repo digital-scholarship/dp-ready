@@ -10,4 +10,7 @@ questions = require('./question.js')
 console.log('hello')
 console.log(questions)
 
+questions.fetch()
+
+console.log(questions)    
 
