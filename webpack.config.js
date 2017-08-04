@@ -5,7 +5,7 @@ module.exports = {
     entry: './src/js/app.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        publicPath: '/dist',
+        publicPath: '/',
         filename: 'bundle.js'
     },
     module: {
@@ -15,6 +15,10 @@ module.exports = {
         		loader: 'babel-loader',
         		exclude: /node_modules/
       		},
+            {
+                test: /\.html$/,
+                loader: 'raw-loader'
+            },
       		{
         		test: /\.(png|jpg|gif|svg)$/,
         		loader: 'file-loader',

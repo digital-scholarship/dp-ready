@@ -6,7 +6,11 @@ define(function (require) {
         Backbone    = require('backbone'),
 
         Question = Backbone.Model.extend({
-            idAttribute: 'question_id'
+            idAttribute: 'question_id',
+
+            getRelative: function(direction) {
+                    return this.collection.at(this.collection.indexOf(this) + direction);
+            }
         }),
 
 
