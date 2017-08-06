@@ -13013,7 +13013,7 @@ exports = module.exports = __webpack_require__(0)(undefined);
 
 
 // module
-exports.push([module.i, "body {\n    font-family: sans-serif;\n}\n", ""]);
+exports.push([module.i, "body {\n    font-family: sans-serif;\n}\n\n\n#guidance {\n    padding: 0 20%;\n}\n\n#stars {\n        font-size: 50px;\n        padding: 10px 0;\n}\n\n#stars a {\n    padding:10px;\n}\n\n.no-stars {\n    color: #6a92b5;\n}\n", ""]);
 
 // exports
 
@@ -14620,6 +14620,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;// questions view
     var qView = Backbone.View.extend({
         my_template: _.template(template),
         el: '#question',
+        guidance: '#guidance',
         initialize: function () {
             this.render();
         },
@@ -14627,10 +14628,17 @@ var __WEBPACK_AMD_DEFINE_RESULT__;// questions view
             this.$el.html(this.my_template(this.model.toJSON()));
         },
         events: {
-            'click a[data-star]': 'starClicked'
+            'click a[data-star]': 'starClicked',
+            'mouseover a[data-star]': 'starHover'
         },
         starClicked: function (e) {
             console.log(e);
+        },
+
+        starHover: function (e) {
+            this.rating = e.currentTarget.dataset.star;
+            this.advice = this.model.get('a' + this.rating);
+            $(guidance).html(this.advice);
         }
     });
 
@@ -31762,7 +31770,7 @@ module.exports = function(module) {
 /* 23 */
 /***/ (function(module, exports) {
 
-module.exports = "<div<h1>Question: <%= question_lite %></h1>\n    <a data-star=0 class=\"button\"><span class=\"glyphicon glyphicon-star\" aria-hidden=\"true\"></span>zero </a>\n    <a data-star=1 class=\"button\"><span class=\"glyphicon glyphicon-star\" aria-hidden=\"true\"></span>one</a>    \n    <a data-star=2 class=\"button\"><span class=\"glyphicon glyphicon-star\" aria-hidden=\"true\"></span>two</a>    \n</div>\n"
+module.exports = "<div><h3>Question: <%= question_lite %></h3>\n    <div id=\"stars\">\n    <a data-star=0 class=\"button\" title=\"zero star\"><span class=\"glyphicon glyphicon-star-empty no-stars\" aria-hidden=\"true\"></span></a>\n    <a data-star=1 class=\"button\" title=\"one star\"><span class=\"glyphicon glyphicon-star\" aria-hidden=\"true\"></span></a>    \n    <a data-star=2 class=\"button\" title=\"two stars\"><span class=\"glyphicon glyphicon-star\" aria-hidden=\"true\"></span></a>    \n    <a data-star=3 class=\"button\" title=\"three stars\"><span class=\"glyphicon glyphicon-star\" aria-hidden=\"true\"></span></a>    \n    <a data-star=4 class=\"button\" title=\"four stars\"><span class=\"glyphicon glyphicon-star\" aria-hidden=\"true\"></span></a>    \n    <a data-star=5 class=\"button\" title=\"five stars\"><span class=\"glyphicon glyphicon-star\" aria-hidden=\"true\"></span></a>    \n    </div>\n\n    <div id=\"guidance\">hover for more info, click to select</div>\n</div>\n"
 
 /***/ })
 /******/ ]);

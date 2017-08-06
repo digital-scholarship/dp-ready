@@ -1,5 +1,12 @@
-<div<h1>Question: <%= question_lite %></h1>
-    <a data-star=0 class="button"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>zero </a>
-    <a data-star=1 class="button"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>one</a>    
-    <a data-star=2 class="button"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>two</a>    
+<div><h3>Question: <%= question_lite %></h3>
+    <div id="stars">
+    <a data-star=0 class="button" title="zero star"><span class="glyphicon glyphicon-star-empty no-stars" aria-hidden="true"></span></a>
+    <a data-star=1 class="button" title="one star"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></a>    
+    <a data-star=2 class="button" title="two stars"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></a>    
+    <a data-star=3 class="button" title="three stars"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></a>    
+    <a data-star=4 class="button" title="four stars"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></a>    
+    <a data-star=5 class="button" title="five stars"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></a>    
+    </div>
+
+    <div id="guidance">hover for more info, click to select</div>
 </div>

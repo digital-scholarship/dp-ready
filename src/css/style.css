@@ -1,3 +1,21 @@
 body {
     font-family: sans-serif;
 }
+
+
+#guidance {
+    padding: 0 20%;
+}
+
+#stars {
+        font-size: 50px;
+        padding: 10px 0;
+}
+
+#stars a {
+    padding:10px;
+}
+
+.no-stars {
+    color: #6a92b5;
+}
