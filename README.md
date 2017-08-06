@@ -2,7 +2,7 @@
 Digital Preservation Readiness Tool
 
 ### About
-This is a proof of concept tool based on the (CESSDA-SAW capability model)[https://www.cessda.eu/Projects/All-projects/CESSDA-SaW/WP3/CESSDA-CDM]. 
+This is a proof of concept tool based on the  [CESSDA-SAW capability model] (https://www.cessda.eu/Projects/All-projects/CESSDA-SaW/WP3/CESSDA-CDM). 
 
 
 ### Install
