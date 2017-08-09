@@ -7,9 +7,12 @@ define(function (require) {
 
         Question = Backbone.Model.extend({
             idAttribute: 'question_id',
-
+            // get next (1) or prev(-1) model
             getRelative: function(direction) {
                     return this.collection.at(this.collection.indexOf(this) + direction);
+            },
+            answered: function(a){
+                console.log("I was answered " + a)
             }
         });
 

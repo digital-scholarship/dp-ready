@@ -19,7 +19,12 @@ define(function (require) {
         id: null,
         hash: null,
         region: null,
-        country: null
+        country: null,
+
+        answer: function(e){
+            console.log("user")
+                console.log(e)
+        }
     })
 
     return User;

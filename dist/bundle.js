@@ -12737,9 +12737,12 @@ var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function (re
         Backbone = __webpack_require__(1),
         Question = Backbone.Model.extend({
         idAttribute: 'question_id',
-
+        // get next (1) or prev(-1) model
         getRelative: function (direction) {
             return this.collection.at(this.collection.indexOf(this) + direction);
+        },
+        answered: function (a) {
+            console.log("I was answered " + a);
         }
     });
 
@@ -12792,6 +12795,11 @@ questions.fetch({
         q = q.getRelative(1);
     }
 });
+
+// needs to happen once when the app starts
+var user = new User();
+
+user.listenTo(questionView, "click:answer", user.answer);
 
 /***/ }),
 /* 8 */
@@ -14622,6 +14630,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;// questions view
         el: '#question',
         guidance: '#guidance',
         initialize: function () {
+            this.listenTo(this.model, "change", this.render);
             this.render();
         },
         render: function () {
@@ -14632,9 +14641,10 @@ var __WEBPACK_AMD_DEFINE_RESULT__;// questions view
             'mouseover a[data-star]': 'starHover'
         },
         starClicked: function (e) {
-            console.log(e);
+            e.preventDefault();
+            var a = $(e.currentTarget).data("star");
+            this.model.answered(a);
         },
-
         starHover: function (e) {
             this.rating = e.currentTarget.dataset.star;
             this.advice = this.model.get('a' + this.rating);
@@ -31822,7 +31832,12 @@ var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function (re
         id: null,
         hash: null,
         region: null,
-        country: null
+        country: null,
+
+        answer: function (e) {
+            console.log("user");
+            console.log(e);
+        }
     });
 
     return User;

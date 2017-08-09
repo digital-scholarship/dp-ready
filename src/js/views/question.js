@@ -14,6 +14,7 @@ define(function (require) {
             el: '#question',
             guidance: '#guidance',
             initialize: function(){
+                this.listenTo(this.model, "change", this.render);
                 this.render();
             },
             render: function(){
@@ -25,15 +26,14 @@ define(function (require) {
                 'mouseover a[data-star]': 'starHover'
             },
             starClicked: function(e){
-                console.log(e);
+                e.preventDefault()
+                var a = $(e.currentTarget).data("star")
+                this.model.answered(a)
             },
-
             starHover: function(e){
                 this.rating = e.currentTarget.dataset.star;
                 this.advice = this.model.get('a' + this.rating)
                 $(guidance).html(this.advice)
-                    
-
             }
         })
 

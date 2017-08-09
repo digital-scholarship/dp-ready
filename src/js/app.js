@@ -16,6 +16,7 @@ Crowd = require('./models/crowd.js')
 //views
 questionView = require('./views/question.js')
 
+
 var questions = new Questions()
 questions.url = '/questions/'    
 
@@ -35,4 +36,7 @@ questions.fetch({
     }
 })
 
+// needs to happen once when the app starts
+var user = new User();
 
+user.listenTo(questionView, "click:answer", user.answer)
