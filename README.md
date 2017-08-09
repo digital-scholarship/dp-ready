@@ -15,4 +15,3 @@ Requires node and npm. Also requires a persistent storage such as Postgresql.
 4. run `npm dev` to start the dev server or `npm prod` for production
 
 
-

@@ -11,17 +11,14 @@ define(function (require) {
             getRelative: function(direction) {
                     return this.collection.at(this.collection.indexOf(this) + direction);
             }
-        }),
-
-
-        Questions = Backbone.Collection.extend({
-
-            model: Question,
-
-            url: "/questions/"
-
         });
 
-    return new Questions();
+
+        var Questions = Backbone.Collection.extend({
+            model: Question,
+            url: 'sdfsdfs' 
+        });
+
+    return Questions;
 
 });

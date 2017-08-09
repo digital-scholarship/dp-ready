@@ -12735,10 +12735,18 @@ module.exports = g;
 __webpack_require__(7);
 __webpack_require__(14);
 __webpack_require__(16);
+__webpack_require__(3);
 __webpack_require__(2);
 
-questions = __webpack_require__(19);
-questionView = __webpack_require__(20);
+Questions = __webpack_require__(24);
+console.log('hello');
+questionView = __webpack_require__(25);
+console.log('hello');
+
+questions = new Questions();
+questions.url = '/questions/';
+
+console.log(questions);
 
 question = null;
 
@@ -12763,6 +12771,12 @@ question = questions.get('c2');
 console.log(question);
 
 //console.log(question.getRelative(1))
+
+
+Sections = __webpack_require__(26);
+sections = new Sections([{ title: 'Technical Section', 'questions': questions }]);
+
+console.log("section: " + sections.at(0));
 
 /***/ }),
 /* 7 */
@@ -14574,79 +14588,8 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;//     Underscor
 
 
 /***/ }),
-/* 19 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function (require) {
-
-    "use strict";
-
-    var $ = __webpack_require__(3),
-        Backbone = __webpack_require__(2),
-        Question = Backbone.Model.extend({
-        idAttribute: 'question_id',
-
-        getRelative: function (direction) {
-            return this.collection.at(this.collection.indexOf(this) + direction);
-        }
-    }),
-        Questions = Backbone.Collection.extend({
-
-        model: Question,
-
-        url: "/questions/"
-
-    });
-
-    return new Questions();
-}.call(exports, __webpack_require__, exports, module),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-
-/***/ }),
-/* 20 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __WEBPACK_AMD_DEFINE_RESULT__;// questions view
-
-!(__WEBPACK_AMD_DEFINE_RESULT__ = function (require) {
-
-    "use strict";
-
-    var $ = __webpack_require__(3),
-        _ = __webpack_require__(21),
-        Backbone = __webpack_require__(2),
-        template = __webpack_require__(23);
-
-    var qView = Backbone.View.extend({
-        my_template: _.template(template),
-        el: '#question',
-        guidance: '#guidance',
-        initialize: function () {
-            this.render();
-        },
-        render: function () {
-            this.$el.html(this.my_template(this.model.toJSON()));
-        },
-        events: {
-            'click a[data-star]': 'starClicked',
-            'mouseover a[data-star]': 'starHover'
-        },
-        starClicked: function (e) {
-            console.log(e);
-        },
-
-        starHover: function (e) {
-            this.rating = e.currentTarget.dataset.star;
-            this.advice = this.model.get('a' + this.rating);
-            $(guidance).html(this.advice);
-        }
-    });
-
-    return qView;
-}.call(exports, __webpack_require__, exports, module),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-
-/***/ }),
+/* 19 */,
+/* 20 */,
 /* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31771,6 +31714,103 @@ module.exports = function(module) {
 /***/ (function(module, exports) {
 
 module.exports = "<div><h3>Question: <%= question_lite %></h3>\n    <div id=\"stars\">\n    <a data-star=0 class=\"button\" title=\"zero star\"><span class=\"glyphicon glyphicon-star-empty no-stars\" aria-hidden=\"true\"></span></a>\n    <a data-star=1 class=\"button\" title=\"one star\"><span class=\"glyphicon glyphicon-star\" aria-hidden=\"true\"></span></a>    \n    <a data-star=2 class=\"button\" title=\"two stars\"><span class=\"glyphicon glyphicon-star\" aria-hidden=\"true\"></span></a>    \n    <a data-star=3 class=\"button\" title=\"three stars\"><span class=\"glyphicon glyphicon-star\" aria-hidden=\"true\"></span></a>    \n    <a data-star=4 class=\"button\" title=\"four stars\"><span class=\"glyphicon glyphicon-star\" aria-hidden=\"true\"></span></a>    \n    <a data-star=5 class=\"button\" title=\"five stars\"><span class=\"glyphicon glyphicon-star\" aria-hidden=\"true\"></span></a>    \n    </div>\n\n    <div id=\"guidance\">hover for more info, click to select</div>\n</div>\n"
+
+/***/ }),
+/* 24 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function (require) {
+
+    "use strict";
+
+    var $ = __webpack_require__(3),
+        Backbone = __webpack_require__(2),
+        Question = Backbone.Model.extend({
+        idAttribute: 'question_id',
+
+        getRelative: function (direction) {
+            return this.collection.at(this.collection.indexOf(this) + direction);
+        }
+    });
+
+    var Questions = Backbone.Collection.extend({
+        model: Question,
+        url: 'sdfsdfs'
+    });
+
+    return Questions;
+}.call(exports, __webpack_require__, exports, module),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+/***/ }),
+/* 25 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_RESULT__;// questions view
+
+!(__WEBPACK_AMD_DEFINE_RESULT__ = function (require) {
+
+    "use strict";
+
+    var $ = __webpack_require__(3),
+        _ = __webpack_require__(21),
+        Backbone = __webpack_require__(2),
+        template = __webpack_require__(23);
+
+    var qView = Backbone.View.extend({
+        my_template: _.template(template),
+        el: '#question',
+        guidance: '#guidance',
+        initialize: function () {
+            this.render();
+        },
+        render: function () {
+            this.$el.html(this.my_template(this.model.toJSON()));
+        },
+        events: {
+            'click a[data-star]': 'starClicked',
+            'mouseover a[data-star]': 'starHover'
+        },
+        starClicked: function (e) {
+            console.log(e);
+        },
+
+        starHover: function (e) {
+            this.rating = e.currentTarget.dataset.star;
+            this.advice = this.model.get('a' + this.rating);
+            $(guidance).html(this.advice);
+        }
+    });
+
+    return qView;
+}.call(exports, __webpack_require__, exports, module),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+/***/ }),
+/* 26 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function (require) {
+
+    "use strict";
+
+    var $ = __webpack_require__(3),
+        Backbone = __webpack_require__(2),
+        Questions = __webpack_require__(24);
+
+    var Section = Backbone.Model.extend({
+        questions: null,
+        title: 'Section',
+        order: 0
+    });
+
+    var Sections = Backbone.Collection.extend({
+        model: Section
+    });
+
+    return Sections;
+}.call(exports, __webpack_require__, exports, module),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 
 /***/ })
 /******/ ]);
