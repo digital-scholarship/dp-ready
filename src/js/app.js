@@ -7,15 +7,19 @@ require( '../css/style.css')
 require('jquery')
 require('backbone')
 
+//models
+Sections = require('./models/sections.js')
 Questions = require('./models/questions.js')
-console.log('hello')
-questionView = require('./views/question.js')
-console.log('hello')
+User = require('./models/user.js')
+Crowd = require('./models/crowd.js')
 
-questions = new Questions()
+//views
+questionView = require('./views/question.js')
+
+var questions = new Questions()
 questions.url = '/questions/'    
 
-    console.log(questions)
+var sections = new Sections([{title: 'Technical', 'questions': questions}])
 
 question = null
 
@@ -32,20 +36,3 @@ questions.fetch({
 })
 
 
-function startApp(questions){
-
-}
-
-console.log(questions)    
-
-question = questions.get('c2')
-
-console.log(question)
-
-//console.log(question.getRelative(1))
-
-
-Sections = require('./models/sections.js')
-sections = new Sections([{title: 'Technical Section', 'questions': questions}])
-
-console.log("section: " + sections.at(0))
