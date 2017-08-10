@@ -1,12 +1,25 @@
-<div><h3>Question: <%= question_lite %></h3>
-    <div id="stars">
-    <a data-star=0 class="button" title="zero star"><span class="glyphicon glyphicon-star-empty no-stars" aria-hidden="true"></span></a>
-    <a data-star=1 class="button" title="one star"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></a>    
-    <a data-star=2 class="button" title="two stars"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></a>    
-    <a data-star=3 class="button" title="three stars"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></a>    
-    <a data-star=4 class="button" title="four stars"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></a>    
-    <a data-star=5 class="button" title="five stars"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></a>    
+<div>
+    <div class="question_head center-block">
+        <h3><%= question_lite %></h3>
+    </div>    
+    <div id="stars" class="center-block">
+        <a data-star=0 class="button" title="zero stars"><span class="glyphicon glyphicon-star-empty no-stars" aria-hidden="true"></span></a>
+        <a data-star=1 class="button" title="one star"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></a>
+        <a data-star=2 class="button" title="two stars"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></a>
+        <a data-star=3 class="button" title="three stars"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></a>
+        <a data-star=4 class="button" title="four stars"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></a> 
+        <a data-star=5 class="button" title="five stars"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></a>
+    </div>
+    <div id="guidance_container">
+        <div id="guidance" class="bg-info">hover over a star for more info, click to select</div>
     </div>
 
-    <div id="guidance">hover for more info, click to select</div>
+    <div id="next-prev">
+        <nav aria-label="...">
+              <ul class="pager">
+                 <li><a class="prev" href="#">Previous</a></li>
+                 <li><a class="next" href="#">Next</a></li>
+              </ul>
+        </nav>
+    </div>
 </div>

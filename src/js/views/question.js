@@ -23,7 +23,9 @@ define(function (require) {
             },
             events: {
                 'click a[data-star]': 'starClicked',
-                'mouseover a[data-star]': 'starHover'
+                'mouseover a[data-star]': 'starHover',
+                'click a.next': 'next',
+                'click a.prev': 'prev'
             },
             starClicked: function(e){
                 e.preventDefault()
@@ -34,6 +36,16 @@ define(function (require) {
                 this.rating = e.currentTarget.dataset.star;
                 this.advice = this.model.get('a' + this.rating)
                 $(guidance).html(this.advice)
+            },
+            next: function(e){
+                e.preventDefault();
+                this.model = this.model.getRelative(1)
+                this.render();
+            },
+            prev: function(e){
+                e.preventDefault();
+                this.model = this.model.getRelative(-1);
+                this.render();
             }
         })
 

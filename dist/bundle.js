@@ -12739,7 +12739,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function (re
         idAttribute: 'question_id',
         // get next (1) or prev(-1) model
         getRelative: function (direction) {
-            return this.collection.at(this.collection.indexOf(this) + direction);
+            return this.collection.at(this.collection.indexOf(this) + direction) || this;
         },
         answered: function (a) {
             console.log("I was answered " + a);
@@ -13050,7 +13050,7 @@ exports = module.exports = __webpack_require__(2)(undefined);
 
 
 // module
-exports.push([module.i, "body {\n    font-family: sans-serif;\n}\n\n\n#guidance {\n    padding: 0 20%;\n}\n\n#stars {\n        font-size: 50px;\n        padding: 10px 0;\n}\n\n#stars a {\n    padding:10px;\n}\n\n.no-stars {\n    color: #6a92b5;\n}\n", ""]);
+exports.push([module.i, "body {\n    font-family: sans-serif;\n}\n\n.question_head {\n    height: 100px;\n}\n\n#guidance_container {\n    height: 140px;\n    display:block;\n    clear: both;\n}\n\n#guidance {\n    padding: 20px;\n}\n\n#stars {\n        font-size: 50px;\n        padding: 10px 0;\n}\n\n#stars a {\n    margin-left: 20px;\n    width: 50px;\n}\n\n.no-stars {\n    color: #6a92b5;\n}\n\n", ""]);
 
 // exports
 
@@ -14638,7 +14638,9 @@ var __WEBPACK_AMD_DEFINE_RESULT__;// questions view
         },
         events: {
             'click a[data-star]': 'starClicked',
-            'mouseover a[data-star]': 'starHover'
+            'mouseover a[data-star]': 'starHover',
+            'click a.next': 'next',
+            'click a.prev': 'prev'
         },
         starClicked: function (e) {
             e.preventDefault();
@@ -14649,6 +14651,16 @@ var __WEBPACK_AMD_DEFINE_RESULT__;// questions view
             this.rating = e.currentTarget.dataset.star;
             this.advice = this.model.get('a' + this.rating);
             $(guidance).html(this.advice);
+        },
+        next: function (e) {
+            e.preventDefault();
+            this.model = this.model.getRelative(1);
+            this.render();
+        },
+        prev: function (e) {
+            e.preventDefault();
+            this.model = this.model.getRelative(-1);
+            this.render();
         }
     });
 
@@ -31780,7 +31792,7 @@ module.exports = function(module) {
 /* 23 */
 /***/ (function(module, exports) {
 
-module.exports = "<div><h3>Question: <%= question_lite %></h3>\n    <div id=\"stars\">\n    <a data-star=0 class=\"button\" title=\"zero star\"><span class=\"glyphicon glyphicon-star-empty no-stars\" aria-hidden=\"true\"></span></a>\n    <a data-star=1 class=\"button\" title=\"one star\"><span class=\"glyphicon glyphicon-star\" aria-hidden=\"true\"></span></a>    \n    <a data-star=2 class=\"button\" title=\"two stars\"><span class=\"glyphicon glyphicon-star\" aria-hidden=\"true\"></span></a>    \n    <a data-star=3 class=\"button\" title=\"three stars\"><span class=\"glyphicon glyphicon-star\" aria-hidden=\"true\"></span></a>    \n    <a data-star=4 class=\"button\" title=\"four stars\"><span class=\"glyphicon glyphicon-star\" aria-hidden=\"true\"></span></a>    \n    <a data-star=5 class=\"button\" title=\"five stars\"><span class=\"glyphicon glyphicon-star\" aria-hidden=\"true\"></span></a>    \n    </div>\n\n    <div id=\"guidance\">hover for more info, click to select</div>\n</div>\n"
+module.exports = "<div>\n    <div class=\"question_head center-block\">\n        <h3><%= question_lite %></h3>\n    </div>    \n    <div id=\"stars\" class=\"center-block\">\n        <a data-star=0 class=\"button\" title=\"zero stars\"><span class=\"glyphicon glyphicon-star-empty no-stars\" aria-hidden=\"true\"></span></a>\n        <a data-star=1 class=\"button\" title=\"one star\"><span class=\"glyphicon glyphicon-star\" aria-hidden=\"true\"></span></a>\n        <a data-star=2 class=\"button\" title=\"two stars\"><span class=\"glyphicon glyphicon-star\" aria-hidden=\"true\"></span></a>\n        <a data-star=3 class=\"button\" title=\"three stars\"><span class=\"glyphicon glyphicon-star\" aria-hidden=\"true\"></span></a>\n        <a data-star=4 class=\"button\" title=\"four stars\"><span class=\"glyphicon glyphicon-star\" aria-hidden=\"true\"></span></a> \n        <a data-star=5 class=\"button\" title=\"five stars\"><span class=\"glyphicon glyphicon-star\" aria-hidden=\"true\"></span></a>\n    </div>\n    <div id=\"guidance_container\">\n        <div id=\"guidance\" class=\"bg-info\">hover over a star for more info, click to select</div>\n    </div>\n\n    <div id=\"next-prev\">\n        <nav aria-label=\"...\">\n              <ul class=\"pager\">\n                 <li><a class=\"prev\" href=\"#\">Previous</a></li>\n                 <li><a class=\"next\" href=\"#\">Next</a></li>\n              </ul>\n        </nav>\n    </div>\n</div>\n"
 
 /***/ }),
 /* 24 */

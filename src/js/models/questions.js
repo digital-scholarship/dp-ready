@@ -9,7 +9,7 @@ define(function (require) {
             idAttribute: 'question_id',
             // get next (1) or prev(-1) model
             getRelative: function(direction) {
-                    return this.collection.at(this.collection.indexOf(this) + direction);
+                    return this.collection.at(this.collection.indexOf(this) + direction) || this;
             },
             answered: function(a){
                 console.log("I was answered " + a)

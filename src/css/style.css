@@ -2,9 +2,18 @@ body {
     font-family: sans-serif;
 }
 
+.question_head {
+    height: 100px;
+}
+
+#guidance_container {
+    height: 140px;
+    display:block;
+    clear: both;
+}
 
 #guidance {
-    padding: 0 20%;
+    padding: 20px;
 }
 
 #stars {
@@ -13,9 +22,11 @@ body {
 }
 
 #stars a {
-    padding:10px;
+    margin-left: 20px;
+    width: 50px;
 }
 
 .no-stars {
     color: #6a92b5;
 }
+
