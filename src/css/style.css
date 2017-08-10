@@ -3,7 +3,7 @@ body {
 }
 
 .question_head {
-    height: 100px;
+    height: 80px;
 }
 
 #guidance_container {
@@ -18,11 +18,10 @@ body {
 
 #stars {
         font-size: 50px;
-        padding: 10px 0;
 }
 
 #stars a {
-    margin-left: 20px;
+    margin-left: 10px;
     width: 50px;
 }
 
