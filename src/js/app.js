@@ -40,3 +40,5 @@ questions.fetch({
 var user = new User();
 
 user.listenTo(questionView, "click:answer", user.answer)
+
+console.log(sections)
