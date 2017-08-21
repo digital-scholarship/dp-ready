@@ -26,7 +26,7 @@ question = null
 
 questions.fetch({
     success: function(){
-         q = questions.at(1)
+         q = questions.at(0)
          console.log(q)
          q = q.getRelative(1)
          console.log(q)    

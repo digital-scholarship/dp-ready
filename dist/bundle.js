@@ -12786,7 +12786,7 @@ question = null;
 
 questions.fetch({
     success: function () {
-        q = questions.at(1);
+        q = questions.at(0);
         console.log(q);
         q = q.getRelative(1);
         console.log(q);
@@ -13052,7 +13052,7 @@ exports = module.exports = __webpack_require__(2)(undefined);
 
 
 // module
-exports.push([module.i, "body {\n    font-family: sans-serif;\n}\n\n.question_head {\n    height: 80px;\n}\n\n#guidance_container {\n    height: 140px;\n    display:block;\n    clear: both;\n}\n\n#guidance {\n    padding: 20px;\n}\n\n#stars {\n        font-size: 50px;\n}\n\n#stars a {\n    margin-left: 10px;\n    width: 50px;\n}\n\n.no-stars {\n    color: #6a92b5;\n}\n\n", ""]);
+exports.push([module.i, "body {\n    font-family: sans-serif;\n}\n\n.question_head {\n    height: 140px;\n}\n\n#guidance_container {\n    height: 140px;\n    display:block;\n    clear: both;\n}\n\n#guidance {\n    padding: 20px;\n}\n\n#stars {\n        font-size: 50px;\n}\n\n#stars a {\n    margin-left: 10px;\n    width: 50px;\n}\n\n.no-stars {\n    color: #6a92b5;\n}\n\n", ""]);
 
 // exports
 
@@ -31877,7 +31877,7 @@ module.exports = function(module) {
 /* 26 */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n    <div class=\"question_head\">\n        <h3><%= question_lite %></h3>\n    </div>    \n    <div id=\"stars\" class=\"center-block\">\n        <a data-star=0 class=\"button\" title=\"zero stars\"><span class=\"glyphicon glyphicon-star-empty no-stars\" aria-hidden=\"true\"></span></a>\n        <a data-star=1 class=\"button\" title=\"one star\"><span class=\"glyphicon glyphicon-star\" aria-hidden=\"true\"></span></a>\n        <a data-star=2 class=\"button\" title=\"two stars\"><span class=\"glyphicon glyphicon-star\" aria-hidden=\"true\"></span></a>\n        <a data-star=3 class=\"button\" title=\"three stars\"><span class=\"glyphicon glyphicon-star\" aria-hidden=\"true\"></span></a>\n        <a data-star=4 class=\"button\" title=\"four stars\"><span class=\"glyphicon glyphicon-star\" aria-hidden=\"true\"></span></a> \n        <a data-star=5 class=\"button\" title=\"five stars\"><span class=\"glyphicon glyphicon-star\" aria-hidden=\"true\"></span></a>\n    </div>\n    <div id=\"guidance_container\">\n        <div id=\"guidance\" class=\"bg-info\">hover over a star for more info, click to select</div>\n    </div>\n\n    <div id=\"next-prev\">\n        <nav aria-label=\"...\">\n              <ul class=\"pager\">\n                 <li><a class=\"prev\" href=\"#\">Previous</a></li>\n                 <li><a class=\"next\" href=\"#\">Next</a></li>\n              </ul>\n        </nav>\n    </div>\n</div>\n"
+module.exports = "<div>\n    <div class=\"question_head\">\n        <h2><%= question_subject %></h3>\n        <h3><%= question_lite %></h3>\n    </div>    \n    <div id=\"stars\" class=\"center-block\">\n        <a data-star=0 class=\"button\" title=\"zero stars\"><span class=\"glyphicon glyphicon-star-empty no-stars\" aria-hidden=\"true\"></span></a>\n        <a data-star=1 class=\"button\" title=\"one star\"><span class=\"glyphicon glyphicon-star\" aria-hidden=\"true\"></span></a>\n        <a data-star=2 class=\"button\" title=\"two stars\"><span class=\"glyphicon glyphicon-star\" aria-hidden=\"true\"></span></a>\n        <a data-star=3 class=\"button\" title=\"three stars\"><span class=\"glyphicon glyphicon-star\" aria-hidden=\"true\"></span></a>\n        <a data-star=4 class=\"button\" title=\"four stars\"><span class=\"glyphicon glyphicon-star\" aria-hidden=\"true\"></span></a> \n        <a data-star=5 class=\"button\" title=\"five stars\"><span class=\"glyphicon glyphicon-star\" aria-hidden=\"true\"></span></a>\n    </div>\n    <div id=\"guidance_container\">\n        <div id=\"guidance\" class=\"bg-info\">hover over a star for more info, click to select</div>\n    </div>\n\n    <div id=\"next-prev\">\n        <nav aria-label=\"...\">\n              <ul class=\"pager\">\n                 <li><a class=\"prev\" href=\"#\">Previous</a></li>\n                 <li><a class=\"next\" href=\"#\">Next</a></li>\n              </ul>\n        </nav>\n    </div>\n</div>\n"
 
 /***/ })
 /******/ ]);
