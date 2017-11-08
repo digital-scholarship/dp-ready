@@ -12,6 +12,6 @@ Requires node and npm. Also requires a persistent storage such as Postgresql.
 1. clone this repository or download the zip file and expand
 2. change into the dp-ready directory `cd dp-ready`
 3. run `npm install`
-4. run `npm dev` to start the dev server or `npm prod` for production
+4. run `npm run dev` to start the dev server or `npm run prod` for production
 
 
