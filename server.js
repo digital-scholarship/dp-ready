@@ -23,7 +23,7 @@ app.get('/answers/:id', function (rq, res){
 })
 
 app.get('/questions', function(rq, res){
-    res.sendFile(__dirname + '/dist/data/dobject.json');
+    res.sendFile(__dirname + '/dist/data/cessda.json');
 })
 
 app.get('/stats', function (rq, res){

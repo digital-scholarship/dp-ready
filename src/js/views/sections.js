@@ -1,4 +1,4 @@
-// questions view
+// sections view
 
 define(function (require) {
 
