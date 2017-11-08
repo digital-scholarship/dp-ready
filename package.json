@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "webpack -w & node server.js",
     "build-js": "webpack",
-    "build-csv": "csvtojson data/dobject.csv > dist/data/dobject.json",
+    "build-csv_old": "csvtojson data/dobject.csv > dist/data/dobject.json",
+    "build-csv": "csvtojson data/cessda_lite_complete_model.csv > dist/data/cessda.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
