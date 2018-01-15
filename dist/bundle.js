@@ -12784,7 +12784,8 @@ questionView = __webpack_require__(23);
 var questions = new Questions();
 questions.url = '/questions/';
 
-var sections = new Sections([{ title: 'Technical', 'questions': questions }]);
+//var sections = new Sections([{title: 'Technical', 'questions': questions}])
+var sections = new Sections(questions);
 
 question = null;
 
@@ -14620,7 +14621,11 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;//     Underscor
 /* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function (require) {
+var __WEBPACK_AMD_DEFINE_RESULT__;// sections model
+// - we get passed the list of questions and then we generate the sections
+
+
+!(__WEBPACK_AMD_DEFINE_RESULT__ = function (require) {
 
     "use strict";
 
@@ -14635,7 +14640,12 @@ var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = function (re
     });
 
     var Sections = Backbone.Collection.extend({
-        model: Section
+        model: Section,
+        initialize: function (questions) {
+            this.gqs = questions.groupBy('area');
+            console.log(this.gqs);
+        }
+
     });
 
     return Sections;

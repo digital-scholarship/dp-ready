@@ -20,7 +20,9 @@ questionView = require('./views/question.js')
 var questions = new Questions()
 questions.url = '/questions/'    
 
-var sections = new Sections([{title: 'Technical', 'questions': questions}])
+//var sections = new Sections([{title: 'Technical', 'questions': questions}])
+var sections = new Sections(questions)
+
 
 question = null
 

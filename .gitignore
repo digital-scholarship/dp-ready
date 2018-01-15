@@ -60,3 +60,6 @@ typings/
 # dotenv environment variables file
 .env
 
+# some other misc stuff in my system
+.Rhistory
+.DS_Store
