@@ -3,6 +3,8 @@ const app = express();
 const bodyParser = require('body-parser');
 const path = require('path');
 
+var db = require('./queries');
+
 app.use(express.static(path.join(__dirname, 'dist')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -26,18 +28,11 @@ app.get('/questions', function(rq, res){
     res.sendFile(__dirname + '/dist/data/cessda.json');
 })
 
-app.get('/stats', function (rq, res){
-    // route to fetch and return stats - global average for each qn and country averages
-    res.send('stats')
-})
-
-app.post('/submit', function (rq, res){
-    res.send('hello workd')
-        console.log('received : ' + rq.params)
-
-        // we will call the geoip service and store country
-        // a result will have an id, a base58 for short url, country, and answers
-})
+app.get('/api/responses', db.getAllResponses);
+app.get('/api/responses/:id', db.getSingleResponse);
+app.post('/api/responses', db.createResponse);
+app.put('/api/responses', db.updateResponse);
+app.get('/api/responses/by/:q', db.getResponsesBy);
 
 // handle 404 etc
 app.get('*', function(req, res){
@@ -47,4 +42,4 @@ app.get('*', function(req, res){
 // Start the server
 app.listen(8080, function (){
     console.log('listening on port 8080')
-})
+});
